@@ -1,24 +1,26 @@
-# Unnamed Band — Rehearsal HQ
+# CRAM — Band Site
 
 A one-page site for the band: a short intro, a shared availability calendar, a rehearsal
-planner with Google Maps links, and a members-only board for links and notes. Login and
-data storage run on Supabase (Auth + Postgres + Realtime). There's no build step — it's a
-single static HTML file.
+planner with Google Maps links, and a members-only board for links and notes. **CRAM**
+stands for *Can Rehearse After Month*. Login and data storage run on Supabase (Auth +
+Postgres + Realtime). There's no build step — it's a single static HTML file.
 
 ## Files
 
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole site (markup, styles, and logic in one file). |
-| `supabase-schema.sql` | Creates the database tables and security rules. Run this once in Supabase. |
+| `supabase-schema.sql` | Creates the database tables and security rules. Run this once, **only if you haven't set up the database yet**. |
+| `supabase-migration-rename-linda-to-sandra.sql` | One-time migration. Run this instead of the schema file **only if you already ran an earlier version of `supabase-schema.sql`** that used `linda` as a member key — it updates the database to use `sandra`. Skip it if you're starting fresh. |
 
 ## 1. Set up Supabase (one-time)
 
 1. Open your project at [supabase.com](https://supabase.com/dashboard) → **SQL Editor** → **New query**.
-2. Paste the contents of `supabase-schema.sql` and click **Run**. This creates four tables
-   (`profiles`, `availability`, `rehearsals`, `board_posts`) with row-level security so only
-   signed-in band members can read or write data, and each member can only edit their own
-   availability and their own board posts.
+2. Run the correct SQL file for your situation (see the table above): either `supabase-schema.sql`
+   (fresh setup) or `supabase-migration-rename-linda-to-sandra.sql` (updating an existing database).
+   This creates/updates four tables (`profiles`, `availability`, `rehearsals`, `board_posts`) with
+   row-level security so only signed-in band members can read or write data, and each member can
+   only edit their own availability and their own board posts.
 3. *(Optional)* **Authentication → Sign In / Providers → Email** — toggle **Confirm email**
    off if you want members to be signed in immediately after they create an account, or on
    if you want them to confirm by email first. The site handles either setting.
@@ -26,6 +28,10 @@ single static HTML file.
 The Supabase project URL and public (`sb_publishable_...`) API key are already in
 `index.html`. That key is meant to be public — it's safe to ship in client-side code. Access
 control is enforced by the database policies from step 2, not by hiding the key.
+
+**Important:** if you're updating an already-deployed site, run the Supabase SQL step
+*before* deploying a new `index.html`, so the database accepts sign-ups the moment the new
+code goes live. See the project chat history for details if that ever gets out of sync again.
 
 ## 2. Preview locally (optional)
 
@@ -67,7 +73,8 @@ done. Run `vercel --prod` to promote it to your production domain.
 
 Open the Vercel URL and confirm:
 
-- The **Home** tab loads with the band intro.
+- The **Home** tab loads with the band intro (CRAM, with the four members: Sol, Daeseong,
+  Sandra, Matthew).
 - The **Schedule** and **Board** tabs show a sign-in / sign-up screen.
 - Signing up as one of the four members works, and the name you picked is no longer
   offered to the next person who signs up.
@@ -79,7 +86,8 @@ Open the Vercel URL and confirm:
 
 Since it's a single file, ask for changes (wording, colors, features) and swap the updated
 `index.html` into the repo — push to GitHub (auto-redeploys) or run `vercel --prod` again
-if you're using the CLI.
+if you're using the CLI. If a change also touches the four member names/keys, update
+Supabase first (see step 1), then deploy the code.
 
 ## Troubleshooting
 
@@ -88,8 +96,8 @@ if you're using the CLI.
   (an ad blocker, a restrictive network) is blocking `jsdelivr.net`.
 - **"Invalid login credentials"** — wrong email/password, or the account hasn't confirmed
   its email yet (see step 1.3 above).
-- **A member's name isn't offered during sign-up** — someone already claimed it. They
-  should sign in instead of signing up again.
-- **Changes don't appear for other members** — confirm `supabase-schema.sql` ran fully,
-  including the last `alter publication supabase_realtime add table ...` line, which turns
-  on live updates.
+- **A member's name isn't offered during sign-up, or sign-up fails with a database error** —
+  someone already claimed that name, or the database's allowed member keys don't match the
+  site's yet (see step 1 and the "Important" note above).
+- **Changes don't appear for other members** — confirm the SQL ran fully, including the
+  last `alter publication supabase_realtime add table ...` line, which turns on live updates.

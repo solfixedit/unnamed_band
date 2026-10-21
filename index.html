@@ -1,700 +1,701 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unnamed Band — Rehearsal HQ</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<style>
-  :root {
-    --bg: #edeff3;
-    --surface: #ffffff;
-    --surface-2: #e2e6ec;
-    --surface-3: #d5dae1;
-    --border: #cbd1d8;
-    --text: #14181c;
-    --text-muted: #5b6469;
-    --accent: #2f5fe0;
-    --accent-soft: rgba(47, 95, 224, 0.12);
-    --accent-2: #d98c1f;
-    --accent-2-soft: rgba(217, 140, 31, 0.16);
-    --danger: #c8392f;
-    --danger-soft: rgba(200, 57, 47, 0.12);
-    --success: #157a54;
-    --shadow: 0 1px 2px rgba(20, 24, 28, 0.06), 0 8px 24px rgba(20, 24, 28, 0.06);
-    --m-sol: #e05a38;
-    --m-daeseong: #12897d;
-    --m-linda: #7c4de0;
-    --m-matthew: #c5891a;
-    color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #14171b;
-      --surface: #1b1f24;
-      --surface-2: #23282e;
-      --surface-3: #2c323a;
-      --border: #363d45;
-      --text: #edeff2;
-      --text-muted: #9aa4ac;
-      --accent: #7396ff;
-      --accent-soft: rgba(115, 150, 255, 0.16);
-      --accent-2: #f0ab4a;
-      --accent-2-soft: rgba(240, 171, 74, 0.18);
-      --danger: #ff7b70;
-      --danger-soft: rgba(255, 123, 112, 0.14);
-      --success: #4fd6a4;
-      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
-      --m-sol: #ff8462;
-      --m-daeseong: #35c4b6;
-      --m-linda: #a988ff;
-      --m-matthew: #e6ac3c;
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #14171b;
-    --surface: #1b1f24;
-    --surface-2: #23282e;
-    --surface-3: #2c323a;
-    --border: #363d45;
-    --text: #edeff2;
-    --text-muted: #9aa4ac;
-    --accent: #7396ff;
-    --accent-soft: rgba(115, 150, 255, 0.16);
-    --accent-2: #f0ab4a;
-    --accent-2-soft: rgba(240, 171, 74, 0.18);
-    --danger: #ff7b70;
-    --danger-soft: rgba(255, 123, 112, 0.14);
-    --success: #4fd6a4;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
-    --m-sol: #ff8462;
-    --m-daeseong: #35c4b6;
-    --m-linda: #a988ff;
-    --m-matthew: #e6ac3c;
-    color-scheme: dark;
-  }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRAM — Can Rehearse After Month</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <style>
+        :root {
+            --bg: #edeff3;
+            --surface: #ffffff;
+            --surface-2: #e2e6ec;
+            --surface-3: #d5dae1;
+            --border: #cbd1d8;
+            --text: #14181c;
+            --text-muted: #5b6469;
+            --accent: #2f5fe0;
+            --accent-soft: rgba(47, 95, 224, 0.12);
+            --accent-2: #d98c1f;
+            --accent-2-soft: rgba(217, 140, 31, 0.16);
+            --danger: #c8392f;
+            --danger-soft: rgba(200, 57, 47, 0.12);
+            --success: #157a54;
+            --shadow: 0 1px 2px rgba(20, 24, 28, 0.06), 0 8px 24px rgba(20, 24, 28, 0.06);
+            --m-sol: #e05a38;
+            --m-daeseong: #12897d;
+            --m-sandra: #7c4de0;
+            --m-matthew: #c5891a;
+            color-scheme: light;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #14171b;
+                --surface: #1b1f24;
+                --surface-2: #23282e;
+                --surface-3: #2c323a;
+                --border: #363d45;
+                --text: #edeff2;
+                --text-muted: #9aa4ac;
+                --accent: #7396ff;
+                --accent-soft: rgba(115, 150, 255, 0.16);
+                --accent-2: #f0ab4a;
+                --accent-2-soft: rgba(240, 171, 74, 0.18);
+                --danger: #ff7b70;
+                --danger-soft: rgba(255, 123, 112, 0.14);
+                --success: #4fd6a4;
+                --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
+                --m-sol: #ff8462;
+                --m-daeseong: #35c4b6;
+                --m-sandra: #a988ff;
+                --m-matthew: #e6ac3c;
+                color-scheme: dark;
+            }
+        }
+        :root[data-theme="dark"] {
+            --bg: #14171b;
+            --surface: #1b1f24;
+            --surface-2: #23282e;
+            --surface-3: #2c323a;
+            --border: #363d45;
+            --text: #edeff2;
+            --text-muted: #9aa4ac;
+            --accent: #7396ff;
+            --accent-soft: rgba(115, 150, 255, 0.16);
+            --accent-2: #f0ab4a;
+            --accent-2-soft: rgba(240, 171, 74, 0.18);
+            --danger: #ff7b70;
+            --danger-soft: rgba(255, 123, 112, 0.14);
+            --success: #4fd6a4;
+            --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
+            --m-sol: #ff8462;
+            --m-daeseong: #35c4b6;
+            --m-sandra: #a988ff;
+            --m-matthew: #e6ac3c;
+            color-scheme: dark;
+        }
 
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3 { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; letter-spacing: 0.01em; text-wrap: balance; margin: 0 0 0.4em; }
-  .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
-  a { color: var(--accent); }
-  button { font: inherit; }
-  input, select, textarea { font: inherit; color: inherit; }
-  #app { max-width: 960px; margin: 0 auto; padding: 0 20px 64px; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3 { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; letter-spacing: 0.01em; text-wrap: balance; margin: 0 0 0.4em; }
+        .mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+        a { color: var(--accent); }
+        button { font: inherit; }
+        input, select, textarea { font: inherit; color: inherit; }
+        #app { max-width: 960px; margin: 0 auto; padding: 0 20px 64px; }
 
-  .topbar {
-    position: sticky; top: 0; z-index: 20;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    padding: 16px 20px; background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
-    margin: 0 -20px 32px; flex-wrap: wrap;
-  }
-  .brand { font-family: "Oswald", sans-serif; font-size: 1.15rem; letter-spacing: 0.04em; text-transform: uppercase; }
-  .brand small { display: block; font-family: "Work Sans", sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; font-weight: 500; }
-  .topbar-right { display: flex; align-items: center; gap: 14px; }
-  .tabs { display: flex; gap: 4px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
-  .tabs button {
-    border: none; background: transparent; color: var(--text-muted); cursor: pointer;
-    padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.15s, color 0.15s;
-  }
-  .tabs button.active { background: var(--accent); color: #fff; }
-  .tabs button:not(.active):hover { color: var(--text); }
-  .whoami { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); }
-  .whoami strong { color: var(--text); }
+        .topbar {
+            position: sticky; top: 0; z-index: 20;
+            display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            padding: 16px 20px; background: color-mix(in srgb, var(--bg) 88%, transparent);
+            backdrop-filter: blur(10px); border-bottom: 1px solid var(--border);
+            margin: 0 -20px 32px; flex-wrap: wrap;
+        }
+        .brand { font-family: "Oswald", sans-serif; font-size: 1.15rem; letter-spacing: 0.04em; text-transform: uppercase; }
+        .brand small { display: block; font-family: "Work Sans", sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; font-weight: 500; }
+        .topbar-right { display: flex; align-items: center; gap: 14px; }
+        .tabs { display: flex; gap: 4px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+        .tabs button {
+            border: none; background: transparent; color: var(--text-muted); cursor: pointer;
+            padding: 8px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.15s, color 0.15s;
+        }
+        .tabs button.active { background: var(--accent); color: #fff; }
+        .tabs button:not(.active):hover { color: var(--text); }
+        .whoami { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); }
+        .whoami strong { color: var(--text); }
 
-  .hero {
-    position: relative; overflow: hidden; border-radius: 20px; padding: 56px 32px;
-    background: radial-gradient(120% 140% at 15% 0%, var(--accent-soft), transparent 60%),
-                radial-gradient(120% 140% at 100% 100%, var(--accent-2-soft), transparent 55%),
-                var(--surface-2);
-    border: 1px solid var(--border); margin-bottom: 40px;
-  }
-  .eyebrow { font-family: "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--accent); margin: 0 0 12px; font-weight: 600; }
-  .hero h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); line-height: 0.98; text-transform: uppercase; margin-bottom: 16px; }
-  .tagline { max-width: 46ch; color: var(--text-muted); font-size: 1.05rem; margin: 0; }
+        .hero {
+            position: relative; overflow: hidden; border-radius: 20px; padding: 56px 32px;
+            background: radial-gradient(120% 140% at 15% 0%, var(--accent-soft), transparent 60%),
+            radial-gradient(120% 140% at 100% 100%, var(--accent-2-soft), transparent 55%),
+            var(--surface-2);
+            border: 1px solid var(--border); margin-bottom: 40px;
+        }
+        .eyebrow { font-family: "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; color: var(--accent); margin: 0 0 12px; font-weight: 600; }
+        .hero h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); line-height: 0.98; text-transform: uppercase; margin-bottom: 16px; }
+        .tagline { max-width: 46ch; color: var(--text-muted); font-size: 1.05rem; margin: 0; }
 
-  section { margin-bottom: 40px; }
-  section > h2 { font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 16px; }
+        section { margin-bottom: 40px; }
+        section > h2 { font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 16px; }
 
-  .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
-  .member-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
-    box-shadow: var(--shadow); border-top: 3px solid var(--m);
-  }
-  .avatar {
-    width: 44px; height: 44px; border-radius: 50%; background: var(--m); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-family: "Oswald", sans-serif;
-    font-size: 1.2rem; margin-bottom: 12px;
-  }
-  .member-card .name { font-family: "Oswald", sans-serif; font-size: 1.1rem; text-transform: uppercase; }
-  .member-card .role { color: var(--text-muted); font-size: 0.85rem; }
+        .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+        .member-card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px;
+            box-shadow: var(--shadow); border-top: 3px solid var(--m);
+        }
+        .avatar {
+            width: 44px; height: 44px; border-radius: 50%; background: var(--m); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-family: "Oswald", sans-serif;
+            font-size: 1.2rem; margin-bottom: 12px;
+        }
+        .member-card .name { font-family: "Oswald", sans-serif; font-size: 1.1rem; text-transform: uppercase; }
+        .member-card .role { color: var(--text-muted); font-size: 0.85rem; }
 
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); }
-  .empty-card { text-align: center; color: var(--text-muted); padding: 28px 20px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; border-radius: 10px;
-    background: var(--accent); color: #fff; padding: 10px 18px; font-weight: 600; font-size: 0.9rem;
-    cursor: pointer; text-decoration: none; transition: filter 0.15s, transform 0.05s;
-  }
-  .btn:hover { filter: brightness(1.08); }
-  .btn:active { transform: translateY(1px); }
-  .btn:disabled { opacity: 0.55; cursor: not-allowed; }
-  .btn.secondary { background: var(--surface-2); color: var(--text); border-color: var(--border); }
-  .btn.danger { background: var(--danger-soft); color: var(--danger); }
-  .btn.small { padding: 6px 12px; font-size: 0.78rem; border-radius: 8px; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); }
+        .empty-card { text-align: center; color: var(--text-muted); padding: 28px 20px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 6px; border: 1px solid transparent; border-radius: 10px;
+            background: var(--accent); color: #fff; padding: 10px 18px; font-weight: 600; font-size: 0.9rem;
+            cursor: pointer; text-decoration: none; transition: filter 0.15s, transform 0.05s;
+        }
+        .btn:hover { filter: brightness(1.08); }
+        .btn:active { transform: translateY(1px); }
+        .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+        .btn.secondary { background: var(--surface-2); color: var(--text); border-color: var(--border); }
+        .btn.danger { background: var(--danger-soft); color: var(--danger); }
+        .btn.small { padding: 6px 12px; font-size: 0.78rem; border-radius: 8px; }
 
-  .pill-link { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-2-soft); color: var(--accent-2); border-radius: 999px; padding: 6px 12px; font-size: 0.82rem; font-weight: 600; text-decoration: none; }
+        .pill-link { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-2-soft); color: var(--accent-2); border-radius: 999px; padding: 6px 12px; font-size: 0.82rem; font-weight: 600; text-decoration: none; }
 
-  /* Auth */
-  .auth-wrap { text-align: center; padding: 48px 24px; max-width: 420px; margin: 20px auto; }
-  .auth-wrap form { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; text-align: left; }
-  .auth-wrap label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; display: flex; flex-direction: column; gap: 4px; }
-  .auth-wrap input, .auth-wrap select { padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 100%; }
-  .auth-wrap .error { color: var(--danger); font-size: 0.85rem; margin-top: 4px; }
-  .auth-wrap .info { color: var(--success); font-size: 0.85rem; margin-top: 4px; }
-  .auth-switch { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
-  .auth-switch button { background: none; border: none; color: var(--accent); cursor: pointer; font-weight: 600; padding: 0; }
-  .taken-tag { color: var(--text-muted); font-size: 0.75rem; }
+        .auth-wrap { text-align: center; padding: 48px 24px; max-width: 420px; margin: 20px auto; }
+        .auth-wrap form { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; text-align: left; }
+        .auth-wrap label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; display: flex; flex-direction: column; gap: 4px; }
+        .auth-wrap input, .auth-wrap select { padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 100%; }
+        .auth-wrap .error { color: var(--danger); font-size: 0.85rem; margin-top: 4px; }
+        .auth-wrap .info { color: var(--success); font-size: 0.85rem; margin-top: 4px; }
+        .auth-switch { margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+        .auth-switch button { background: none; border: none; color: var(--accent); cursor: pointer; font-weight: 600; padding: 0; }
+        .taken-tag { color: var(--text-muted); font-size: 0.75rem; }
 
-  .identity-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 28px; font-size: 0.9rem; color: var(--text-muted); }
-  .readonly-banner { background: var(--danger-soft); color: var(--danger); border-radius: 10px; padding: 10px 14px; font-size: 0.85rem; margin-bottom: 20px; }
+        .identity-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 28px; font-size: 0.9rem; color: var(--text-muted); }
+        .readonly-banner { background: var(--danger-soft); color: var(--danger); border-radius: 10px; padding: 10px 14px; font-size: 0.85rem; margin-bottom: 20px; }
 
-  .planner-form { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
-  .planner-form label { display: flex; flex-direction: column; gap: 4px; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
-  .planner-form input { padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 100%; }
-  .planner-form .full { grid-column: 1 / -1; }
-  .planner-form .actions { grid-column: 1 / -1; }
-  .rehearsal-list { display: flex; flex-direction: column; gap: 10px; }
-  .rehearsal-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--accent-2-soft); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; flex-wrap: wrap; }
-  .rehearsal-row .info { display: flex; flex-direction: column; gap: 2px; }
-  .rehearsal-row .date { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
-  .rehearsal-row .note { color: var(--text-muted); font-size: 0.85rem; }
+        .planner-form { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+        .planner-form label { display: flex; flex-direction: column; gap: 4px; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+        .planner-form input { padding: 9px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 100%; }
+        .planner-form .full { grid-column: 1 / -1; }
+        .planner-form .actions { grid-column: 1 / -1; }
+        .rehearsal-list { display: flex; flex-direction: column; gap: 10px; }
+        .rehearsal-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--accent-2-soft); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; flex-wrap: wrap; }
+        .rehearsal-row .info { display: flex; flex-direction: column; gap: 2px; }
+        .rehearsal-row .date { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+        .rehearsal-row .note { color: var(--text-muted); font-size: 0.85rem; }
 
-  .cal-scroll { overflow-x: auto; }
-  .cal-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 16px; }
-  .cal-nav button { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
-  .cal-nav .label { font-family: "Oswald", sans-serif; font-size: 1.15rem; text-transform: uppercase; min-width: 180px; text-align: center; }
-  .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(108px, 1fr)); gap: 6px; min-width: 760px; }
-  .cal-head { text-align: center; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); padding-bottom: 6px; font-weight: 600; }
-  .day { border: 1px solid var(--border); border-radius: 10px; background: var(--surface); min-height: 108px; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
-  .day.blank { background: transparent; border-color: transparent; }
-  .day.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .day.has-gig { border-color: var(--accent-2); background: var(--accent-2-soft); }
-  .day-num { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--text-muted); }
-  .half { flex: 1; border-radius: 6px; padding: 3px 4px; cursor: pointer; display: flex; flex-direction: column; gap: 3px; border: 1px dashed transparent; }
-  .half:hover { border-color: var(--border); background: var(--surface-2); }
-  .half .half-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
-  .half.mine { background: var(--accent-soft); }
-  .chips { display: flex; flex-wrap: wrap; gap: 3px; }
-  .chip { width: 18px; height: 18px; border-radius: 50%; background: var(--c); color: #fff; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
-  .gig-badge { font-size: 0.62rem; background: var(--accent-2); color: #241500; border-radius: 6px; padding: 2px 5px; font-weight: 700; text-align: center; text-decoration: none; display: block; }
-  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 0.8rem; color: var(--text-muted); }
-  .legend .item { display: flex; align-items: center; gap: 6px; }
-  .legend .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
+        .cal-scroll { overflow-x: auto; }
+        .cal-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-bottom: 16px; }
+        .cal-nav button { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
+        .cal-nav .label { font-family: "Oswald", sans-serif; font-size: 1.15rem; text-transform: uppercase; min-width: 180px; text-align: center; }
+        .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(108px, 1fr)); gap: 6px; min-width: 760px; }
+        .cal-head { text-align: center; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); padding-bottom: 6px; font-weight: 600; }
+        .day { border: 1px solid var(--border); border-radius: 10px; background: var(--surface); min-height: 108px; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+        .day.blank { background: transparent; border-color: transparent; }
+        .day.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+        .day.has-gig { border-color: var(--accent-2); background: var(--accent-2-soft); }
+        .day-num { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--text-muted); }
+        .half { flex: 1; border-radius: 6px; padding: 3px 4px; cursor: pointer; display: flex; flex-direction: column; gap: 3px; border: 1px dashed transparent; }
+        .half:hover { border-color: var(--border); background: var(--surface-2); }
+        .half .half-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
+        .half.mine { background: var(--accent-soft); }
+        .chips { display: flex; flex-wrap: wrap; gap: 3px; }
+        .chip { width: 18px; height: 18px; border-radius: 50%; background: var(--c); color: #fff; font-size: 0.6rem; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .gig-badge { font-size: 0.62rem; background: var(--accent-2); color: #241500; border-radius: 6px; padding: 2px 5px; font-weight: 700; text-align: center; text-decoration: none; display: block; }
+        .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; font-size: 0.8rem; color: var(--text-muted); }
+        .legend .item { display: flex; align-items: center; gap: 6px; }
+        .legend .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
 
-  .post-form { display: grid; gap: 10px; margin-bottom: 22px; }
-  .post-form input, .post-form textarea { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 100%; }
-  .post-form textarea { resize: vertical; min-height: 60px; }
-  .post-list { display: flex; flex-direction: column; gap: 12px; }
-  .post { display: flex; gap: 12px; }
-  .post .chip.big { width: 32px; height: 32px; font-size: 0.85rem; flex-shrink: 0; }
-  .post .body { flex: 1; }
-  .post .meta { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
-  .post .title { font-weight: 700; }
-  .post .note { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
-  .post .row-actions { margin-top: 8px; display: flex; gap: 8px; }
+        .post-form { display: grid; gap: 10px; margin-bottom: 22px; }
+        .post-form input, .post-form textarea { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); width: 100%; }
+        .post-form textarea { resize: vertical; min-height: 60px; }
+        .post-list { display: flex; flex-direction: column; gap: 12px; }
+        .post { display: flex; gap: 12px; }
+        .post .chip.big { width: 32px; height: 32px; font-size: 0.85rem; flex-shrink: 0; }
+        .post .body { flex: 1; }
+        .post .meta { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
+        .post .title { font-weight: 700; }
+        .post .note { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
+        .post .row-actions { margin-top: 8px; display: flex; gap: 8px; }
 
-  footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; padding-top: 20px; border-top: 1px solid var(--border); }
+        footer { text-align: center; color: var(--text-muted); font-size: 0.8rem; padding-top: 20px; border-top: 1px solid var(--border); }
 
-  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 0.85rem; box-shadow: var(--shadow); z-index: 50; max-width: 90vw; text-align: center; }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 0.85rem; box-shadow: var(--shadow); z-index: 50; max-width: 90vw; text-align: center; }
 
-  @media (max-width: 640px) {
-    .topbar { flex-direction: column; align-items: stretch; gap: 12px; }
-    .planner-form { grid-template-columns: 1fr 1fr; }
-  }
-</style>
+        @media (max-width: 640px) {
+            .topbar { flex-direction: column; align-items: stretch; gap: 12px; }
+            .planner-form { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
 <div id="app"></div>
 <div id="toast" class="toast" hidden></div>
 <script>
-(function () {
-  "use strict";
+    (function () {
+        "use strict";
 
-  /* ---------- Supabase config ---------- */
-  var SUPABASE_URL = "https://pqhqvokmkoexqqqozbcn.supabase.co";
-  var SUPABASE_ANON_KEY = "sb_publishable_aInPDbQYXDKMZqhPJYbYDg_GsvQoSA_";
-  var sb = null;
+        /* ---------- Supabase config ---------- */
+        var SUPABASE_URL = "https://pqhqvokmkoexqqqozbcn.supabase.co";
+        var SUPABASE_ANON_KEY = "sb_publishable_aInPDbQYXDKMZqhPJYbYDg_GsvQoSA_";
+        var sb = null;
 
-  var TITLE = "Unnamed Band";
-  var MEMBERS = [
-    { key: "sol", name: "Sol", instrument: "Bass", color: "var(--m-sol)", initial: "S" },
-    { key: "daeseong", name: "Daeseong", instrument: "Guitar", color: "var(--m-daeseong)", initial: "D" },
-    { key: "linda", name: "Linda", instrument: "Drums", color: "var(--m-linda)", initial: "L" },
-    { key: "matthew", name: "Matthew", instrument: "Keys", color: "var(--m-matthew)", initial: "M" }
-  ];
-  function memberByKey(k) { for (var i = 0; i < MEMBERS.length; i++) if (MEMBERS[i].key === k) return MEMBERS[i]; return null; }
+        var TITLE = "CRAM";
+        var SUBTITLE = "Can Rehearse After Month";
+        var MEMBERS = [
+            { key: "sol", name: "Sol", instrument: "Bass", color: "var(--m-sol)", initial: "S" },
+            { key: "daeseong", name: "Daeseong", instrument: "Guitar", color: "var(--m-daeseong)", initial: "D" },
+            { key: "sandra", name: "Sandra", instrument: "Percussion & Vocals", color: "var(--m-sandra)", initial: "SA" },
+            { key: "matthew", name: "Matthew", instrument: "Keys", color: "var(--m-matthew)", initial: "M" }
+        ];
+        function memberByKey(k) { for (var i = 0; i < MEMBERS.length; i++) if (MEMBERS[i].key === k) return MEMBERS[i]; return null; }
 
-  var STATE = { availability: {}, rehearsals: {}, board: [] };
-  var SESSION = null;   // supabase auth session
-  var PROFILE = null;   // { id, member_key }
-  var DATA_LOADED = false;
-  var REALTIME_CHANNEL = null;
+        var STATE = { availability: {}, rehearsals: {}, board: [] };
+        var SESSION = null;   // supabase auth session
+        var PROFILE = null;   // { id, member_key }
+        var DATA_LOADED = false;
+        var REALTIME_CHANNEL = null;
 
-  var VIEW = {
-    tab: "home",
-    month: null,
-    authMode: "signin",   // 'signin' | 'signup'
-    authError: "",
-    authInfo: "",
-    authBusy: false,
-    takenMembers: []
-  };
+        var VIEW = {
+            tab: "home",
+            month: null,
+            authMode: "signin",   // 'signin' | 'signup'
+            authError: "",
+            authInfo: "",
+            authBusy: false,
+            takenMembers: []
+        };
 
-  /* ---------- date helpers ---------- */
-  function pad(n) { return n < 10 ? "0" + n : "" + n; }
-  function isoDate(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
-  function todayIso() { var t = new Date(); return isoDate(t.getFullYear(), t.getMonth(), t.getDate()); }
-  function monthLabel(ym) {
-    var parts = ym.split("-"); var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, 1);
-    return d.toLocaleDateString("en-CA", { month: "long", year: "numeric" });
-  }
-  function shiftMonth(ym, delta) {
-    var parts = ym.split("-"); var y = parseInt(parts[0], 10); var m = parseInt(parts[1], 10) - 1 + delta;
-    var d = new Date(y, m, 1); return d.getFullYear() + "-" + pad(d.getMonth() + 1);
-  }
-  function time12(t) {
-    if (!t) return "";
-    var parts = t.split(":"); var h = parseInt(parts[0], 10); var min = parts[1];
-    var ampm = h >= 12 ? "PM" : "AM"; var h12 = h % 12; if (h12 === 0) h12 = 12;
-    return h12 + ":" + min + " " + ampm;
-  }
-  function dateLabel(iso) {
-    var parts = iso.split("-"); var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-    return d.toLocaleDateString("en-CA", { weekday: "short", month: "short", day: "numeric" });
-  }
-  function mapsUrl(loc) { return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(loc); }
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  }
-  function escAttr(s) { return esc(s).replace(/'/g, "&#39;"); }
-  function isHttpUrl(u) { return /^https?:\/\//i.test(u || ""); }
-
-  var toastTimer = null;
-  function toast(msg) {
-    var el = document.getElementById("toast");
-    if (!el) return;
-    el.textContent = msg; el.hidden = false;
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { el.hidden = true; }, 3500);
-  }
-
-  /* ---------- data loading ---------- */
-  function rowsToAvailability(rows) {
-    var out = {};
-    (rows || []).forEach(function (r) {
-      if (!out[r.date]) out[r.date] = { am: [], pm: [] };
-      out[r.date][r.half].push(r.member_key);
-    });
-    return out;
-  }
-  function rowsToRehearsals(rows) {
-    var out = {};
-    (rows || []).forEach(function (r) {
-      out[r.date] = { time: r.time || "", location: r.location || "", note: r.note || "" };
-    });
-    return out;
-  }
-
-  function loadAvailability() {
-    return sb.from("availability").select("date, half, member_key").then(function (res) {
-      if (res.error) throw res.error;
-      STATE.availability = rowsToAvailability(res.data);
-      render();
-    });
-  }
-  function loadRehearsals() {
-    return sb.from("rehearsals").select("date, time, location, note").then(function (res) {
-      if (res.error) throw res.error;
-      STATE.rehearsals = rowsToRehearsals(res.data);
-      render();
-    });
-  }
-  function loadBoard() {
-    return sb.from("board_posts").select("id, author_member_key, title, url, note, created_at").order("created_at", { ascending: false }).then(function (res) {
-      if (res.error) throw res.error;
-      STATE.board = res.data || [];
-      render();
-    });
-  }
-  function loadAll() {
-    return Promise.all([loadAvailability(), loadRehearsals(), loadBoard()]).then(function () {
-      DATA_LOADED = true;
-      render();
-    }).catch(function (err) {
-      console.error(err);
-      toast("Couldn't load data from Supabase. Check the console for details.");
-    });
-  }
-
-  function subscribeRealtime() {
-    if (REALTIME_CHANNEL) return;
-    REALTIME_CHANNEL = sb.channel("band-hq")
-      .on("postgres_changes", { event: "*", schema: "public", table: "availability" }, function () { loadAvailability(); })
-      .on("postgres_changes", { event: "*", schema: "public", table: "rehearsals" }, function () { loadRehearsals(); })
-      .on("postgres_changes", { event: "*", schema: "public", table: "board_posts" }, function () { loadBoard(); })
-      .subscribe();
-  }
-
-  /* ---------- auth ---------- */
-  function ensureProfile() {
-    if (!SESSION) return Promise.resolve();
-    return sb.from("profiles").select("member_key").eq("id", SESSION.user.id).maybeSingle().then(function (res) {
-      if (res.error) throw res.error;
-      if (res.data) { PROFILE = res.data; return; }
-      var pendingKey = SESSION.user.user_metadata && SESSION.user.user_metadata.member_key;
-      if (!pendingKey) { PROFILE = null; return; }
-      return sb.from("profiles").insert({ id: SESSION.user.id, member_key: pendingKey }).select("member_key").single().then(function (ins) {
-        if (ins.error) {
-          if (ins.error.code === "23505") {
-            toast("'" + pendingKey + "' is already linked to another account.");
-          }
-          throw ins.error;
+        /* ---------- date helpers ---------- */
+        function pad(n) { return n < 10 ? "0" + n : "" + n; }
+        function isoDate(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
+        function todayIso() { var t = new Date(); return isoDate(t.getFullYear(), t.getMonth(), t.getDate()); }
+        function monthLabel(ym) {
+            var parts = ym.split("-"); var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, 1);
+            return d.toLocaleDateString("en-CA", { month: "long", year: "numeric" });
         }
-        PROFILE = ins.data;
-      });
-    }).catch(function (err) {
-      console.error(err);
-      PROFILE = null;
-    });
-  }
+        function shiftMonth(ym, delta) {
+            var parts = ym.split("-"); var y = parseInt(parts[0], 10); var m = parseInt(parts[1], 10) - 1 + delta;
+            var d = new Date(y, m, 1); return d.getFullYear() + "-" + pad(d.getMonth() + 1);
+        }
+        function time12(t) {
+            if (!t) return "";
+            var parts = t.split(":"); var h = parseInt(parts[0], 10); var min = parts[1];
+            var ampm = h >= 12 ? "PM" : "AM"; var h12 = h % 12; if (h12 === 0) h12 = 12;
+            return h12 + ":" + min + " " + ampm;
+        }
+        function dateLabel(iso) {
+            var parts = iso.split("-"); var d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+            return d.toLocaleDateString("en-CA", { weekday: "short", month: "short", day: "numeric" });
+        }
+        function mapsUrl(loc) { return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(loc); }
+        function esc(s) {
+            return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+        function escAttr(s) { return esc(s).replace(/'/g, "&#39;"); }
+        function isHttpUrl(u) { return /^https?:\/\//i.test(u || ""); }
 
-  function loadTakenMembers() {
-    return sb.from("profiles").select("member_key").then(function (res) {
-      VIEW.takenMembers = (res.data || []).map(function (r) { return r.member_key; });
-      render();
-    }).catch(function () {});
-  }
+        var toastTimer = null;
+        function toast(msg) {
+            var el = document.getElementById("toast");
+            if (!el) return;
+            el.textContent = msg; el.hidden = false;
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function () { el.hidden = true; }, 3500);
+        }
 
-  function onAuthReady() {
-    if (SESSION && PROFILE) {
-      subscribeRealtime();
-      if (!DATA_LOADED) loadAll(); else render();
-    } else {
-      render();
-    }
-  }
+        /* ---------- data loading ---------- */
+        function rowsToAvailability(rows) {
+            var out = {};
+            (rows || []).forEach(function (r) {
+                if (!out[r.date]) out[r.date] = { am: [], pm: [] };
+                out[r.date][r.half].push(r.member_key);
+            });
+            return out;
+        }
+        function rowsToRehearsals(rows) {
+            var out = {};
+            (rows || []).forEach(function (r) {
+                out[r.date] = { time: r.time || "", location: r.location || "", note: r.note || "" };
+            });
+            return out;
+        }
 
-  function handleSessionChange(session) {
-    SESSION = session;
-    if (!session) {
-      PROFILE = null; DATA_LOADED = false;
-      VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = "";
-      if (REALTIME_CHANNEL) { sb.removeChannel(REALTIME_CHANNEL); REALTIME_CHANNEL = null; }
-      render();
-      return;
-    }
-    ensureProfile().then(onAuthReady);
-  }
+        function loadAvailability() {
+            return sb.from("availability").select("date, half, member_key").then(function (res) {
+                if (res.error) throw res.error;
+                STATE.availability = rowsToAvailability(res.data);
+                render();
+            });
+        }
+        function loadRehearsals() {
+            return sb.from("rehearsals").select("date, time, location, note").then(function (res) {
+                if (res.error) throw res.error;
+                STATE.rehearsals = rowsToRehearsals(res.data);
+                render();
+            });
+        }
+        function loadBoard() {
+            return sb.from("board_posts").select("id, author_member_key, title, url, note, created_at").order("created_at", { ascending: false }).then(function (res) {
+                if (res.error) throw res.error;
+                STATE.board = res.data || [];
+                render();
+            });
+        }
+        function loadAll() {
+            return Promise.all([loadAvailability(), loadRehearsals(), loadBoard()]).then(function () {
+                DATA_LOADED = true;
+                render();
+            }).catch(function (err) {
+                console.error(err);
+                toast("Couldn't load data from Supabase. Check the console for details.");
+            });
+        }
 
-  function doSignIn(email, password) {
-    VIEW.authBusy = true; VIEW.authError = ""; render();
-    sb.auth.signInWithPassword({ email: email, password: password }).then(function (res) {
-      VIEW.authBusy = false;
-      if (res.error) { VIEW.authError = res.error.message; render(); return; }
-      // handleSessionChange fires via onAuthStateChange
-    });
-  }
-  function doSignUp(email, password, memberKey) {
-    if (!memberKey) { VIEW.authError = "Choose which member you are."; render(); return; }
-    VIEW.authBusy = true; VIEW.authError = ""; VIEW.authInfo = ""; render();
-    sb.auth.signUp({ email: email, password: password, options: { data: { member_key: memberKey } } }).then(function (res) {
-      VIEW.authBusy = false;
-      if (res.error) { VIEW.authError = res.error.message; render(); return; }
-      if (res.data.session) { VIEW.authInfo = "Account created!"; render(); return; }
-      VIEW.authInfo = "Check your email to confirm your account, then sign in.";
-      VIEW.authMode = "signin";
-      render();
-    });
-  }
-  function doSignOut() {
-    sb.auth.signOut();
-  }
+        function subscribeRealtime() {
+            if (REALTIME_CHANNEL) return;
+            REALTIME_CHANNEL = sb.channel("band-hq")
+                .on("postgres_changes", { event: "*", schema: "public", table: "availability" }, function () { loadAvailability(); })
+                .on("postgres_changes", { event: "*", schema: "public", table: "rehearsals" }, function () { loadRehearsals(); })
+                .on("postgres_changes", { event: "*", schema: "public", table: "board_posts" }, function () { loadBoard(); })
+                .subscribe();
+        }
 
-  /* ---------- mutations ---------- */
-  function toggleAvailability(date, half) {
-    if (!PROFILE) { toast("Sign in first."); return; }
-    var list = (STATE.availability[date] && STATE.availability[date][half]) || [];
-    var mine = list.indexOf(PROFILE.member_key) >= 0;
-    var p = mine
-      ? sb.from("availability").delete().eq("date", date).eq("half", half).eq("member_key", PROFILE.member_key)
-      : sb.from("availability").insert({ date: date, half: half, member_key: PROFILE.member_key });
-    p.then(function (res) {
-      if (res.error) { toast("Couldn't save that — try again."); console.error(res.error); return; }
-      loadAvailability();
-    });
-  }
-  function saveRehearsal(date, time, location, note) {
-    sb.from("rehearsals").upsert({ date: date, time: time || null, location: location || "", note: note || "", created_by: PROFILE ? PROFILE.member_key : null }).then(function (res) {
-      if (res.error) { toast("Couldn't save the rehearsal."); console.error(res.error); return; }
-      loadRehearsals();
-    });
-  }
-  function clearRehearsal(date) {
-    sb.from("rehearsals").delete().eq("date", date).then(function (res) {
-      if (res.error) { toast("Couldn't cancel the rehearsal."); console.error(res.error); return; }
-      loadRehearsals();
-    });
-  }
-  function addPost(title, url, note) {
-    if (!PROFILE) { toast("Sign in first."); return; }
-    sb.from("board_posts").insert({ author_member_key: PROFILE.member_key, title: title, url: url || "", note: note || "" }).then(function (res) {
-      if (res.error) { toast("Couldn't post — try again."); console.error(res.error); return; }
-      loadBoard();
-    });
-  }
-  function deletePost(id) {
-    sb.from("board_posts").delete().eq("id", id).then(function (res) {
-      if (res.error) { toast("Couldn't delete that post."); console.error(res.error); return; }
-      loadBoard();
-    });
-  }
+        /* ---------- auth ---------- */
+        function ensureProfile() {
+            if (!SESSION) return Promise.resolve();
+            return sb.from("profiles").select("member_key").eq("id", SESSION.user.id).maybeSingle().then(function (res) {
+                if (res.error) throw res.error;
+                if (res.data) { PROFILE = res.data; return; }
+                var pendingKey = SESSION.user.user_metadata && SESSION.user.user_metadata.member_key;
+                if (!pendingKey) { PROFILE = null; return; }
+                return sb.from("profiles").insert({ id: SESSION.user.id, member_key: pendingKey }).select("member_key").single().then(function (ins) {
+                    if (ins.error) {
+                        if (ins.error.code === "23505") {
+                            toast("'" + pendingKey + "' is already linked to another account.");
+                        }
+                        throw ins.error;
+                    }
+                    PROFILE = ins.data;
+                });
+            }).catch(function (err) {
+                console.error(err);
+                PROFILE = null;
+            });
+        }
 
-  /* ---------- rendering ---------- */
-  function topbar() {
-    var tabs = ["home", "schedule", "board"].map(function (t) {
-      var lbl = t === "home" ? "Home" : t === "schedule" ? "Schedule" : "Board";
-      return '<button data-action="switch-tab" data-tab="' + t + '" class="' + (VIEW.tab === t ? "active" : "") + '">' + lbl + "</button>";
-    }).join("");
-    var who = "";
-    if (SESSION && PROFILE) {
-      var mm = memberByKey(PROFILE.member_key);
-      who = '<div class="whoami">Signed in as <strong>' + esc(mm ? mm.name : PROFILE.member_key) + '</strong><button class="btn secondary small" data-action="sign-out">Sign out</button></div>';
-    }
-    return '<header class="topbar"><div class="brand">' + esc(TITLE) + "<small>Rehearsal HQ</small></div>" +
-      '<div class="topbar-right"><nav class="tabs">' + tabs + "</nav>" + who + "</div></header>";
-  }
+        function loadTakenMembers() {
+            return sb.from("profiles").select("member_key").then(function (res) {
+                VIEW.takenMembers = (res.data || []).map(function (r) { return r.member_key; });
+                render();
+            }).catch(function () {});
+        }
 
-  function memberCard(m) {
-    return '<div class="member-card" style="--m:' + m.color + '"><div class="avatar">' + m.initial + '</div>' +
-      '<div class="name">' + esc(m.name) + '</div><div class="role">' + esc(m.instrument) + "</div></div>";
-  }
+        function onAuthReady() {
+            if (SESSION && PROFILE) {
+                subscribeRealtime();
+                if (!DATA_LOADED) loadAll(); else render();
+            } else {
+                render();
+            }
+        }
 
-  function nextRehearsal() {
-    var today = todayIso(); var dates = Object.keys(STATE.rehearsals).filter(function (d) { return d >= today; }).sort();
-    return dates.length ? { date: dates[0], info: STATE.rehearsals[dates[0]] } : null;
-  }
+        function handleSessionChange(session) {
+            SESSION = session;
+            if (!session) {
+                PROFILE = null; DATA_LOADED = false;
+                VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = "";
+                if (REALTIME_CHANNEL) { sb.removeChannel(REALTIME_CHANNEL); REALTIME_CHANNEL = null; }
+                render();
+                return;
+            }
+            ensureProfile().then(onAuthReady);
+        }
 
-  function rehearsalCardHtml(date, info) {
-    var loc = info.location ? '<a class="pill-link" target="_blank" rel="noopener" href="' + mapsUrl(info.location) + '">📍 ' + esc(info.location) + "</a>" : "";
-    return '<div class="card"><div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;">' +
-      '<div><div class="date mono" style="font-size:1.1rem;font-weight:700;">' + esc(dateLabel(date)) + (info.time ? " · " + esc(time12(info.time)) : "") + "</div>" +
-      (info.note ? '<div class="note" style="color:var(--text-muted);margin-top:4px;">' + esc(info.note) + "</div>" : "") + "</div>" +
-      loc + "</div></div>";
-  }
+        function doSignIn(email, password) {
+            VIEW.authBusy = true; VIEW.authError = ""; render();
+            sb.auth.signInWithPassword({ email: email, password: password }).then(function (res) {
+                VIEW.authBusy = false;
+                if (res.error) { VIEW.authError = res.error.message; render(); return; }
+                // handleSessionChange fires via onAuthStateChange
+            });
+        }
+        function doSignUp(email, password, memberKey) {
+            if (!memberKey) { VIEW.authError = "Choose which member you are."; render(); return; }
+            VIEW.authBusy = true; VIEW.authError = ""; VIEW.authInfo = ""; render();
+            sb.auth.signUp({ email: email, password: password, options: { data: { member_key: memberKey } } }).then(function (res) {
+                VIEW.authBusy = false;
+                if (res.error) { VIEW.authError = res.error.message; render(); return; }
+                if (res.data.session) { VIEW.authInfo = "Account created!"; render(); return; }
+                VIEW.authInfo = "Check your email to confirm your account, then sign in.";
+                VIEW.authMode = "signin";
+                render();
+            });
+        }
+        function doSignOut() {
+            sb.auth.signOut();
+        }
 
-  function viewHome() {
-    var nr = nextRehearsal();
-    var html = '<section class="hero"><p class="eyebrow">St. Catharines · Amateur Four-Piece</p>' +
-      "<h1>" + esc(TITLE) + "</h1>" +
-      '<p class="tagline">Bass, guitar, drums and keys — and a band name we genuinely haven’t picked yet. Rehearsal schedule and shared notes live on this page.</p></section>';
-    html += '<section><h2>The Lineup</h2><div class="member-grid">' + MEMBERS.map(memberCard).join("") + "</div></section>";
-    html += '<section><h2>Next Rehearsal</h2>';
-    if (DATA_LOADED && nr) html += rehearsalCardHtml(nr.date, nr.info);
-    else if (DATA_LOADED) html += '<div class="card empty-card">No rehearsal scheduled yet. <button class="btn small" style="margin-top:10px;" data-action="switch-tab" data-tab="schedule">Go plan one</button></div>';
-    else html += '<div class="card empty-card">Sign in on the Schedule tab to load the latest plan.</div>';
-    html += "</section>";
-    return html;
-  }
+        /* ---------- mutations ---------- */
+        function toggleAvailability(date, half) {
+            if (!PROFILE) { toast("Sign in first."); return; }
+            var list = (STATE.availability[date] && STATE.availability[date][half]) || [];
+            var mine = list.indexOf(PROFILE.member_key) >= 0;
+            var p = mine
+                ? sb.from("availability").delete().eq("date", date).eq("half", half).eq("member_key", PROFILE.member_key)
+                : sb.from("availability").insert({ date: date, half: half, member_key: PROFILE.member_key });
+            p.then(function (res) {
+                if (res.error) { toast("Couldn't save that — try again."); console.error(res.error); return; }
+                loadAvailability();
+            });
+        }
+        function saveRehearsal(date, time, location, note) {
+            sb.from("rehearsals").upsert({ date: date, time: time || null, location: location || "", note: note || "", created_by: PROFILE ? PROFILE.member_key : null }).then(function (res) {
+                if (res.error) { toast("Couldn't save the rehearsal."); console.error(res.error); return; }
+                loadRehearsals();
+            });
+        }
+        function clearRehearsal(date) {
+            sb.from("rehearsals").delete().eq("date", date).then(function (res) {
+                if (res.error) { toast("Couldn't cancel the rehearsal."); console.error(res.error); return; }
+                loadRehearsals();
+            });
+        }
+        function addPost(title, url, note) {
+            if (!PROFILE) { toast("Sign in first."); return; }
+            sb.from("board_posts").insert({ author_member_key: PROFILE.member_key, title: title, url: url || "", note: note || "" }).then(function (res) {
+                if (res.error) { toast("Couldn't post — try again."); console.error(res.error); return; }
+                loadBoard();
+            });
+        }
+        function deletePost(id) {
+            sb.from("board_posts").delete().eq("id", id).then(function (res) {
+                if (res.error) { toast("Couldn't delete that post."); console.error(res.error); return; }
+                loadBoard();
+            });
+        }
 
-  function viewAuth() {
-    var err = VIEW.authError ? '<div class="error">' + esc(VIEW.authError) + "</div>" : "";
-    var info = VIEW.authInfo ? '<div class="info">' + esc(VIEW.authInfo) + "</div>" : "";
-    if (VIEW.authMode === "signup") {
-      var opts = MEMBERS.map(function (m) {
-        var taken = VIEW.takenMembers.indexOf(m.key) >= 0;
-        return '<option value="' + m.key + '"' + (taken ? " disabled" : "") + ">" + esc(m.name) + " (" + esc(m.instrument) + ")" + (taken ? " — already claimed" : "") + "</option>";
-      }).join("");
-      return '<section class="auth-wrap"><h2>Create your account</h2><p style="color:var(--text-muted);">One account per band member.</p>' +
-        '<form data-action="signup">' +
-        '<label>Which member are you?<select name="member" required><option value="">Choose…</option>' + opts + "</select></label>" +
-        '<label>Email<input type="email" name="email" required></label>' +
-        '<label>Password<input type="password" name="password" minlength="6" required></label>' +
-        '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Sign up</button>" +
-        "</form>" + err + info +
-        '<div class="auth-switch">Already have an account? <button data-action="show-signin">Sign in</button></div></section>';
-    }
-    return '<section class="auth-wrap"><h2>Members Only</h2><p style="color:var(--text-muted);">Sign in to see the schedule and board.</p>' +
-      '<form data-action="signin">' +
-      '<label>Email<input type="email" name="email" required autofocus></label>' +
-      '<label>Password<input type="password" name="password" required></label>' +
-      '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Sign in</button>" +
-      "</form>" + err + info +
-      '<div class="auth-switch">New here? <button data-action="show-signup">Create an account</button></div></section>';
-  }
+        /* ---------- rendering ---------- */
+        function topbar() {
+            var tabs = ["home", "schedule", "board"].map(function (t) {
+                var lbl = t === "home" ? "Home" : t === "schedule" ? "Schedule" : "Board";
+                return '<button data-action="switch-tab" data-tab="' + t + '" class="' + (VIEW.tab === t ? "active" : "") + '">' + lbl + "</button>";
+            }).join("");
+            var who = "";
+            if (SESSION && PROFILE) {
+                var mm = memberByKey(PROFILE.member_key);
+                who = '<div class="whoami">Signed in as <strong>' + esc(mm ? mm.name : PROFILE.member_key) + '</strong><button class="btn secondary small" data-action="sign-out">Sign out</button></div>';
+            }
+            return '<header class="topbar"><div class="brand">' + esc(TITLE) + "<small>" + esc(SUBTITLE) + "</small></div>" +
+                '<div class="topbar-right"><nav class="tabs">' + tabs + "</nav>" + who + "</div></header>";
+        }
 
-  function calendarGrid() {
-    var parts = VIEW.month.split("-"); var y = parseInt(parts[0], 10); var m = parseInt(parts[1], 10) - 1;
-    var firstDow = new Date(y, m, 1).getDay();
-    var daysInMonth = new Date(y, m + 1, 0).getDate();
-    var today = todayIso();
-    var head = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(function (d) { return '<div class="cal-head">' + d + "</div>"; }).join("");
-    var cells = "";
-    for (var i = 0; i < firstDow; i++) cells += '<div class="day blank"></div>';
-    for (var d = 1; d <= daysInMonth; d++) {
-      var iso = isoDate(y, m, d);
-      var av = STATE.availability[iso] || { am: [], pm: [] };
-      var gig = STATE.rehearsals[iso];
-      var classes = "day" + (iso === today ? " today" : "") + (gig ? " has-gig" : "");
-      cells += '<div class="' + classes + '"><div class="day-num">' + d + "</div>";
-      ["am", "pm"].forEach(function (half) {
-        var list = av[half] || [];
-        var mine = PROFILE && list.indexOf(PROFILE.member_key) >= 0;
-        var chips = list.map(function (key) { var mm = memberByKey(key); if (!mm) return ""; return '<span class="chip" style="--c:' + mm.color + '" title="' + escAttr(mm.name) + '">' + mm.initial + "</span>"; }).join("");
-        cells += '<div class="half' + (mine ? " mine" : "") + '" data-action="toggle-avail" data-date="' + iso + '" data-half="' + half + '">' +
-          '<span class="half-label">' + half.toUpperCase() + '</span><div class="chips">' + chips + "</div></div>";
-      });
-      if (gig) {
-        cells += '<a class="gig-badge" target="_blank" rel="noopener" href="' + (gig.location ? mapsUrl(gig.location) : "#") + '">🎸 ' + (gig.time ? esc(time12(gig.time)) : "Rehearsal") + "</a>";
-      }
-      cells += "</div>";
-    }
-    var legend = MEMBERS.map(function (mm) { return '<span class="item"><span class="dot" style="--c:' + mm.color + '"></span>' + esc(mm.name) + "</span>"; }).join("");
-    return '<section class="calendar"><h2>Availability</h2>' +
-      '<div class="cal-nav"><button data-action="prev-month">‹</button><span class="label">' + esc(monthLabel(VIEW.month)) + '</span><button data-action="next-month">›</button></div>' +
-      '<div class="cal-scroll"><div class="cal-grid">' + head + cells + "</div></div>" +
-      '<div class="legend">' + legend + "</div></section>";
-  }
+        function memberCard(m) {
+            return '<div class="member-card" style="--m:' + m.color + '"><div class="avatar">' + m.initial + '</div>' +
+                '<div class="name">' + esc(m.name) + '</div><div class="role">' + esc(m.instrument) + "</div></div>";
+        }
 
-  function plannerSection() {
-    var dates = Object.keys(STATE.rehearsals).sort();
-    var rows = dates.map(function (date) {
-      var info = STATE.rehearsals[date];
-      var loc = info.location ? '<a class="pill-link" target="_blank" rel="noopener" href="' + mapsUrl(info.location) + '">📍 ' + esc(info.location) + "</a>" : "";
-      return '<div class="rehearsal-row"><div class="info"><span class="date">' + esc(dateLabel(date)) + (info.time ? " · " + esc(time12(info.time)) : "") + "</span>" +
-        (info.note ? '<span class="note">' + esc(info.note) + "</span>" : "") + "</div>" + loc +
-        '<button class="btn danger small" data-action="clear-rehearsal" data-date="' + date + '">Cancel</button></div>';
-    }).join("");
-    return '<section class="planner"><h2>Plan a Rehearsal</h2><div class="card">' +
-      '<form class="planner-form" data-action="save-rehearsal">' +
-      '<label>Date<input type="date" name="date" required></label>' +
-      '<label>Time<input type="time" name="time"></label>' +
-      '<label class="full">Location<input type="text" name="location" placeholder="e.g. 123 Main St, St. Catharines, ON"></label>' +
-      '<label class="full">Note<input type="text" name="note" placeholder="Bring cables, extra pick, etc."></label>' +
-      '<div class="actions"><button class="btn" type="submit">Save rehearsal</button></div></form>' +
-      (rows ? '<div class="rehearsal-list" style="margin-top:16px;">' + rows + "</div>" : '<p style="color:var(--text-muted);margin-top:14px;">No rehearsals booked yet.</p>') +
-      "</div></section>";
-  }
+        function nextRehearsal() {
+            var today = todayIso(); var dates = Object.keys(STATE.rehearsals).filter(function (d) { return d >= today; }).sort();
+            return dates.length ? { date: dates[0], info: STATE.rehearsals[dates[0]] } : null;
+        }
 
-  function viewSchedule() {
-    if (!SESSION || !PROFILE) { VIEW.authMode = VIEW.authMode || "signin"; return viewAuth(); }
-    return plannerSection() + calendarGrid();
-  }
+        function rehearsalCardHtml(date, info) {
+            var loc = info.location ? '<a class="pill-link" target="_blank" rel="noopener" href="' + mapsUrl(info.location) + '">📍 ' + esc(info.location) + "</a>" : "";
+            return '<div class="card"><div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;">' +
+                '<div><div class="date mono" style="font-size:1.1rem;font-weight:700;">' + esc(dateLabel(date)) + (info.time ? " · " + esc(time12(info.time)) : "") + "</div>" +
+                (info.note ? '<div class="note" style="color:var(--text-muted);margin-top:4px;">' + esc(info.note) + "</div>" : "") + "</div>" +
+                loc + "</div></div>";
+        }
 
-  function timeAgo(iso) {
-    var ts = new Date(iso).getTime();
-    var s = Math.floor((Date.now() - ts) / 1000);
-    if (s < 60) return "just now";
-    var m = Math.floor(s / 60); if (m < 60) return m + "m ago";
-    var h = Math.floor(m / 60); if (h < 24) return h + "h ago";
-    var d = Math.floor(h / 24); return d + "d ago";
-  }
+        function viewHome() {
+            var nr = nextRehearsal();
+            var html = '<section class="hero"><p class="eyebrow">St. Catharines · Amateur Four-Piece</p>' +
+                "<h1>" + esc(TITLE) + "</h1>" +
+                '<p class="tagline"><strong>' + esc(SUBTITLE) + '.</strong> Bass, guitar, percussion, vocals, and keys, finally making it happen. ' +
+                'Rehearsal schedule and shared notes live on this page.</p></section>';
+            html += '<section><h2>The Lineup</h2><div class="member-grid">' + MEMBERS.map(memberCard).join("") + "</div></section>";
+            html += '<section><h2>Next Rehearsal</h2>';
+            if (DATA_LOADED && nr) html += rehearsalCardHtml(nr.date, nr.info);
+            else if (DATA_LOADED) html += '<div class="card empty-card">No rehearsal scheduled yet. <button class="btn small" style="margin-top:10px;" data-action="switch-tab" data-tab="schedule">Go plan one</button></div>';
+            else html += '<div class="card empty-card">Sign in on the Schedule tab to load the latest plan.</div>';
+            html += "</section>";
+            return html;
+        }
 
-  function postHtml(p) {
-    var mm = memberByKey(p.author_member_key);
-    var titleHtml = (p.url && isHttpUrl(p.url)) ? '<a class="title" target="_blank" rel="noopener" href="' + escAttr(p.url) + '">' + esc(p.title) + "</a>" : '<span class="title">' + esc(p.title) + "</span>";
-    var del = (PROFILE && PROFILE.member_key === p.author_member_key) ? '<div class="row-actions"><button class="btn danger small" data-action="delete-post" data-id="' + p.id + '">Delete</button></div>' : "";
-    return '<div class="post card"><div class="chip big" style="--c:' + (mm ? mm.color : "#888") + '">' + (mm ? mm.initial : "?") + '</div>' +
-      '<div class="body"><div class="meta"><strong>' + esc(mm ? mm.name : "Unknown") + "</strong> · " + timeAgo(p.created_at) + "</div>" +
-      titleHtml + (p.note ? '<div class="note">' + esc(p.note) + "</div>" : "") + del + "</div></div>";
-  }
+        function viewAuth() {
+            var err = VIEW.authError ? '<div class="error">' + esc(VIEW.authError) + "</div>" : "";
+            var info = VIEW.authInfo ? '<div class="info">' + esc(VIEW.authInfo) + "</div>" : "";
+            if (VIEW.authMode === "signup") {
+                var opts = MEMBERS.map(function (m) {
+                    var taken = VIEW.takenMembers.indexOf(m.key) >= 0;
+                    return '<option value="' + m.key + '"' + (taken ? " disabled" : "") + ">" + esc(m.name) + " (" + esc(m.instrument) + ")" + (taken ? " — already claimed" : "") + "</option>";
+                }).join("");
+                return '<section class="auth-wrap"><h2>Create your account</h2><p style="color:var(--text-muted);">One account per band member.</p>' +
+                    '<form data-action="signup">' +
+                    '<label>Which member are you?<select name="member" required><option value="">Choose…</option>' + opts + "</select></label>" +
+                    '<label>Email<input type="email" name="email" required></label>' +
+                    '<label>Password<input type="password" name="password" minlength="6" required></label>' +
+                    '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Sign up</button>" +
+                    "</form>" + err + info +
+                    '<div class="auth-switch">Already have an account? <button data-action="show-signin">Sign in</button></div></section>';
+            }
+            return '<section class="auth-wrap"><h2>Members Only</h2><p style="color:var(--text-muted);">Sign in to see the schedule and board.</p>' +
+                '<form data-action="signin">' +
+                '<label>Email<input type="email" name="email" required autofocus></label>' +
+                '<label>Password<input type="password" name="password" required></label>' +
+                '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Sign in</button>" +
+                "</form>" + err + info +
+                '<div class="auth-switch">New here? <button data-action="show-signup">Create an account</button></div></section>';
+        }
 
-  function viewBoard() {
-    if (!SESSION || !PROFILE) { VIEW.authMode = VIEW.authMode || "signin"; return viewAuth(); }
-    var posts = STATE.board.map(postHtml).join("") || '<div class="card empty-card">Nothing here yet — post a rehearsal video or reference track below.</div>';
-    return '<section><h2>Board</h2><form class="post-form card" data-action="add-post">' +
-      '<input type="text" name="title" placeholder="Title (e.g. ‘Reference track for new song’)" required>' +
-      '<input type="url" name="url" placeholder="Link (YouTube, Google Drive, etc.) — optional">' +
-      '<textarea name="note" placeholder="Notes for the band — optional"></textarea>' +
-      '<div><button class="btn" type="submit">Post</button></div></form>' +
-      '<div class="post-list">' + posts + "</div></section>";
-  }
+        function calendarGrid() {
+            var parts = VIEW.month.split("-"); var y = parseInt(parts[0], 10); var m = parseInt(parts[1], 10) - 1;
+            var firstDow = new Date(y, m, 1).getDay();
+            var daysInMonth = new Date(y, m + 1, 0).getDate();
+            var today = todayIso();
+            var head = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(function (d) { return '<div class="cal-head">' + d + "</div>"; }).join("");
+            var cells = "";
+            for (var i = 0; i < firstDow; i++) cells += '<div class="day blank"></div>';
+            for (var d = 1; d <= daysInMonth; d++) {
+                var iso = isoDate(y, m, d);
+                var av = STATE.availability[iso] || { am: [], pm: [] };
+                var gig = STATE.rehearsals[iso];
+                var classes = "day" + (iso === today ? " today" : "") + (gig ? " has-gig" : "");
+                cells += '<div class="' + classes + '"><div class="day-num">' + d + "</div>";
+                ["am", "pm"].forEach(function (half) {
+                    var list = av[half] || [];
+                    var mine = PROFILE && list.indexOf(PROFILE.member_key) >= 0;
+                    var chips = list.map(function (key) { var mm = memberByKey(key); if (!mm) return ""; return '<span class="chip" style="--c:' + mm.color + '" title="' + escAttr(mm.name) + '">' + mm.initial + "</span>"; }).join("");
+                    cells += '<div class="half' + (mine ? " mine" : "") + '" data-action="toggle-avail" data-date="' + iso + '" data-half="' + half + '">' +
+                        '<span class="half-label">' + half.toUpperCase() + '</span><div class="chips">' + chips + "</div></div>";
+                });
+                if (gig) {
+                    cells += '<a class="gig-badge" target="_blank" rel="noopener" href="' + (gig.location ? mapsUrl(gig.location) : "#") + '">🎸 ' + (gig.time ? esc(time12(gig.time)) : "Rehearsal") + "</a>";
+                }
+                cells += "</div>";
+            }
+            var legend = MEMBERS.map(function (mm) { return '<span class="item"><span class="dot" style="--c:' + mm.color + '"></span>' + esc(mm.name) + "</span>"; }).join("");
+            return '<section class="calendar"><h2>Availability</h2>' +
+                '<div class="cal-nav"><button data-action="prev-month">‹</button><span class="label">' + esc(monthLabel(VIEW.month)) + '</span><button data-action="next-month">›</button></div>' +
+                '<div class="cal-scroll"><div class="cal-grid">' + head + cells + "</div></div>" +
+                '<div class="legend">' + legend + "</div></section>";
+        }
 
-  function render() {
-    var app = document.getElementById("app");
-    if (!app) return;
-    var body = VIEW.tab === "home" ? viewHome() : VIEW.tab === "schedule" ? viewSchedule() : viewBoard();
-    app.innerHTML = topbar() + "<main>" + body + '</main><footer>Made for Sol, Daeseong, Linda &amp; Matthew · St. Catharines, ON</footer>';
-  }
+        function plannerSection() {
+            var dates = Object.keys(STATE.rehearsals).sort();
+            var rows = dates.map(function (date) {
+                var info = STATE.rehearsals[date];
+                var loc = info.location ? '<a class="pill-link" target="_blank" rel="noopener" href="' + mapsUrl(info.location) + '">📍 ' + esc(info.location) + "</a>" : "";
+                return '<div class="rehearsal-row"><div class="info"><span class="date">' + esc(dateLabel(date)) + (info.time ? " · " + esc(time12(info.time)) : "") + "</span>" +
+                    (info.note ? '<span class="note">' + esc(info.note) + "</span>" : "") + "</div>" + loc +
+                    '<button class="btn danger small" data-action="clear-rehearsal" data-date="' + date + '">Cancel</button></div>';
+            }).join("");
+            return '<section class="planner"><h2>Plan a Rehearsal</h2><div class="card">' +
+                '<form class="planner-form" data-action="save-rehearsal">' +
+                '<label>Date<input type="date" name="date" required></label>' +
+                '<label>Time<input type="time" name="time"></label>' +
+                '<label class="full">Location<input type="text" name="location" placeholder="e.g. 123 Main St, St. Catharines, ON"></label>' +
+                '<label class="full">Note<input type="text" name="note" placeholder="Bring cables, extra pick, etc."></label>' +
+                '<div class="actions"><button class="btn" type="submit">Save rehearsal</button></div></form>' +
+                (rows ? '<div class="rehearsal-list" style="margin-top:16px;">' + rows + "</div>" : '<p style="color:var(--text-muted);margin-top:14px;">No rehearsals booked yet.</p>') +
+                "</div></section>";
+        }
 
-  /* ---------- event delegation ---------- */
-  document.addEventListener("click", function (e) {
-    var el = e.target.closest("[data-action]");
-    if (!el) return;
-    var action = el.getAttribute("data-action");
-    if (action === "switch-tab") { VIEW.tab = el.getAttribute("data-tab"); render(); }
-    else if (action === "prev-month") { VIEW.month = shiftMonth(VIEW.month, -1); render(); }
-    else if (action === "next-month") { VIEW.month = shiftMonth(VIEW.month, 1); render(); }
-    else if (action === "toggle-avail") { toggleAvailability(el.getAttribute("data-date"), el.getAttribute("data-half")); }
-    else if (action === "clear-rehearsal") { clearRehearsal(el.getAttribute("data-date")); }
-    else if (action === "delete-post") { deletePost(el.getAttribute("data-id")); }
-    else if (action === "sign-out") { doSignOut(); }
-    else if (action === "show-signup") { VIEW.authMode = "signup"; VIEW.authError = ""; VIEW.authInfo = ""; loadTakenMembers(); render(); }
-    else if (action === "show-signin") { VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = ""; render(); }
-  });
+        function viewSchedule() {
+            if (!SESSION || !PROFILE) { VIEW.authMode = VIEW.authMode || "signin"; return viewAuth(); }
+            return plannerSection() + calendarGrid();
+        }
 
-  document.addEventListener("submit", function (e) {
-    var form = e.target.closest("[data-action]");
-    if (!form) return;
-    e.preventDefault();
-    var action = form.getAttribute("data-action");
-    if (action === "signin") {
-      doSignIn(form.email.value.trim(), form.password.value);
-    } else if (action === "signup") {
-      doSignUp(form.email.value.trim(), form.password.value, form.member.value);
-    } else if (action === "save-rehearsal") {
-      if (!form.date.value) return;
-      saveRehearsal(form.date.value, form.time.value, form.location.value.trim(), form.note.value.trim());
-      form.reset();
-    } else if (action === "add-post") {
-      var title = form.title.value.trim();
-      if (!title) return;
-      addPost(title, form.url.value.trim(), form.note.value.trim());
-      form.reset();
-    }
-  });
+        function timeAgo(iso) {
+            var ts = new Date(iso).getTime();
+            var s = Math.floor((Date.now() - ts) / 1000);
+            if (s < 60) return "just now";
+            var m = Math.floor(s / 60); if (m < 60) return m + "m ago";
+            var h = Math.floor(m / 60); if (h < 24) return h + "h ago";
+            var d = Math.floor(h / 24); return d + "d ago";
+        }
 
-  /* ---------- init ---------- */
-  function init() {
-    if (!window.supabase || typeof window.supabase.createClient !== "function") {
-      document.getElementById("app").innerHTML = '<div style="padding:40px;text-align:center;color:var(--danger);">Couldn’t load the Supabase library. Check your internet connection and reload.</div>';
-      return;
-    }
-    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        function postHtml(p) {
+            var mm = memberByKey(p.author_member_key);
+            var titleHtml = (p.url && isHttpUrl(p.url)) ? '<a class="title" target="_blank" rel="noopener" href="' + escAttr(p.url) + '">' + esc(p.title) + "</a>" : '<span class="title">' + esc(p.title) + "</span>";
+            var del = (PROFILE && PROFILE.member_key === p.author_member_key) ? '<div class="row-actions"><button class="btn danger small" data-action="delete-post" data-id="' + p.id + '">Delete</button></div>' : "";
+            return '<div class="post card"><div class="chip big" style="--c:' + (mm ? mm.color : "#888") + '">' + (mm ? mm.initial : "?") + '</div>' +
+                '<div class="body"><div class="meta"><strong>' + esc(mm ? mm.name : "Unknown") + "</strong> · " + timeAgo(p.created_at) + "</div>" +
+                titleHtml + (p.note ? '<div class="note">' + esc(p.note) + "</div>" : "") + del + "</div></div>";
+        }
 
-    var now = new Date();
-    VIEW.month = now.getFullYear() + "-" + pad(now.getMonth() + 1);
+        function viewBoard() {
+            if (!SESSION || !PROFILE) { VIEW.authMode = VIEW.authMode || "signin"; return viewAuth(); }
+            var posts = STATE.board.map(postHtml).join("") || '<div class="card empty-card">Nothing here yet — post a rehearsal video or reference track below.</div>';
+            return '<section><h2>Board</h2><form class="post-form card" data-action="add-post">' +
+                '<input type="text" name="title" placeholder="Title (e.g. ‘Reference track for new song’)" required>' +
+                '<input type="url" name="url" placeholder="Link (YouTube, Google Drive, etc.) — optional">' +
+                '<textarea name="note" placeholder="Notes for the band — optional"></textarea>' +
+                '<div><button class="btn" type="submit">Post</button></div></form>' +
+                '<div class="post-list">' + posts + "</div></section>";
+        }
 
-    render();
+        function render() {
+            var app = document.getElementById("app");
+            if (!app) return;
+            var body = VIEW.tab === "home" ? viewHome() : VIEW.tab === "schedule" ? viewSchedule() : viewBoard();
+            app.innerHTML = topbar() + "<main>" + body + '</main><footer>Made for Sol, Daeseong, Sandra &amp; Matthew · St. Catharines, ON</footer>';
+        }
 
-    sb.auth.onAuthStateChange(function (_event, session) { handleSessionChange(session); });
-    sb.auth.getSession().then(function (res) { handleSessionChange(res.data.session); });
-  }
+        /* ---------- event delegation ---------- */
+        document.addEventListener("click", function (e) {
+            var el = e.target.closest("[data-action]");
+            if (!el) return;
+            var action = el.getAttribute("data-action");
+            if (action === "switch-tab") { VIEW.tab = el.getAttribute("data-tab"); render(); }
+            else if (action === "prev-month") { VIEW.month = shiftMonth(VIEW.month, -1); render(); }
+            else if (action === "next-month") { VIEW.month = shiftMonth(VIEW.month, 1); render(); }
+            else if (action === "toggle-avail") { toggleAvailability(el.getAttribute("data-date"), el.getAttribute("data-half")); }
+            else if (action === "clear-rehearsal") { clearRehearsal(el.getAttribute("data-date")); }
+            else if (action === "delete-post") { deletePost(el.getAttribute("data-id")); }
+            else if (action === "sign-out") { doSignOut(); }
+            else if (action === "show-signup") { VIEW.authMode = "signup"; VIEW.authError = ""; VIEW.authInfo = ""; loadTakenMembers(); render(); }
+            else if (action === "show-signin") { VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = ""; render(); }
+        });
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
-})();
+        document.addEventListener("submit", function (e) {
+            var form = e.target.closest("[data-action]");
+            if (!form) return;
+            e.preventDefault();
+            var action = form.getAttribute("data-action");
+            if (action === "signin") {
+                doSignIn(form.email.value.trim(), form.password.value);
+            } else if (action === "signup") {
+                doSignUp(form.email.value.trim(), form.password.value, form.member.value);
+            } else if (action === "save-rehearsal") {
+                if (!form.date.value) return;
+                saveRehearsal(form.date.value, form.time.value, form.location.value.trim(), form.note.value.trim());
+                form.reset();
+            } else if (action === "add-post") {
+                var title = form.title.value.trim();
+                if (!title) return;
+                addPost(title, form.url.value.trim(), form.note.value.trim());
+                form.reset();
+            }
+        });
+
+        /* ---------- init ---------- */
+        function init() {
+            if (!window.supabase || typeof window.supabase.createClient !== "function") {
+                document.getElementById("app").innerHTML = '<div style="padding:40px;text-align:center;color:var(--danger);">Couldn’t load the Supabase library. Check your internet connection and reload.</div>';
+                return;
+            }
+            sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            var now = new Date();
+            VIEW.month = now.getFullYear() + "-" + pad(now.getMonth() + 1);
+
+            render();
+
+            sb.auth.onAuthStateChange(function (_event, session) { handleSessionChange(session); });
+            sb.auth.getSession().then(function (res) { handleSessionChange(res.data.session); });
+        }
+
+        if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+        else init();
+    })();
 </script>
 </body>
 </html>
