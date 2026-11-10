@@ -251,6 +251,8 @@
         var PROFILE = null;   // { id, member_key }
         var DATA_LOADED = false;
         var REALTIME_CHANNEL = null;
+        var RECOVERY_MODE = false; // true once Supabase fires a PASSWORD_RECOVERY event (user came from a reset-password link)
+        var INITIAL_HASH_ERROR = null; // error_description from a #error=... link (e.g. an expired/used-up reset link)
 
         var VIEW = {
             tab: "home",
@@ -400,12 +402,44 @@
             SESSION = session;
             if (!session) {
                 PROFILE = null; DATA_LOADED = false;
-                VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = "";
+                if (INITIAL_HASH_ERROR) {
+                    VIEW.tab = "schedule"; // so the auth/forgot screen actually renders instead of the home tab
+                    VIEW.authMode = "forgot";
+                    VIEW.authError = INITIAL_HASH_ERROR;
+                    VIEW.authInfo = "";
+                    INITIAL_HASH_ERROR = null; // show it once, then behave normally
+                } else {
+                    VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = "";
+                }
                 if (REALTIME_CHANNEL) { sb.removeChannel(REALTIME_CHANNEL); REALTIME_CHANNEL = null; }
                 render();
                 return;
             }
+            if (RECOVERY_MODE) {
+                // Came from a "reset password" email link. Don't drop straight into the
+                // app — show the set-new-password screen first.
+                render();
+                return;
+            }
             ensureProfile().then(onAuthReady);
+        }
+
+        function doUpdatePassword(newPassword, confirmPassword) {
+            VIEW.authError = ""; VIEW.authInfo = "";
+            if (newPassword.length < 6) { VIEW.authError = "Password must be at least 6 characters."; render(); return; }
+            if (newPassword !== confirmPassword) { VIEW.authError = "Passwords don't match."; render(); return; }
+            VIEW.authBusy = true; render();
+            sb.auth.updateUser({ password: newPassword }).then(function (res) {
+                VIEW.authBusy = false;
+                if (res.error) { VIEW.authError = res.error.message; render(); return; }
+                RECOVERY_MODE = false;
+                sb.auth.signOut().then(function () {
+                    VIEW.tab = "schedule"; // so the sign-in form (not the Home tab) is what shows next
+                    VIEW.authMode = "signin";
+                    VIEW.authInfo = "Password updated! Sign in with your new password.";
+                    render();
+                });
+            });
         }
 
         function doSignIn(email, password) {
@@ -430,6 +464,16 @@
         }
         function doSignOut() {
             sb.auth.signOut();
+        }
+        function doForgotPassword(email) {
+            if (!email) { VIEW.authError = "Enter your email first."; render(); return; }
+            VIEW.authBusy = true; VIEW.authError = ""; VIEW.authInfo = ""; render();
+            sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + window.location.pathname }).then(function (res) {
+                VIEW.authBusy = false;
+                if (res.error) { VIEW.authError = res.error.message; render(); return; }
+                VIEW.authInfo = "Check your email for a link to set a new password.";
+                render();
+            });
         }
 
         /* ---------- mutations ---------- */
@@ -536,13 +580,21 @@
                     "</form>" + err + info +
                     '<div class="auth-switch">Already have an account? <button data-action="show-signin">Sign in</button></div></section>';
             }
+            if (VIEW.authMode === "forgot") {
+                return '<section class="auth-wrap"><h2>Reset your password</h2><p style="color:var(--text-muted);">We\'ll email you a link to set a new password.</p>' +
+                    '<form data-action="forgot-password">' +
+                    '<label>Email<input type="email" name="email" required autofocus></label>' +
+                    '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Send reset link</button>" +
+                    "</form>" + err + info +
+                    '<div class="auth-switch"><button data-action="show-signin">Back to sign in</button></div></section>';
+            }
             return '<section class="auth-wrap"><h2>Members Only</h2><p style="color:var(--text-muted);">Sign in to see the schedule and board.</p>' +
                 '<form data-action="signin">' +
                 '<label>Email<input type="email" name="email" required autofocus></label>' +
                 '<label>Password<input type="password" name="password" required></label>' +
                 '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Sign in</button>" +
                 "</form>" + err + info +
-                '<div class="auth-switch">New here? <button data-action="show-signup">Create an account</button></div></section>';
+                '<div class="auth-switch">New here? <button data-action="show-signup">Create an account</button> · <button data-action="show-forgot">Forgot password?</button></div></section>';
         }
 
         function calendarGrid() {
@@ -632,9 +684,26 @@
                 '<div class="post-list">' + posts + "</div></section>";
         }
 
+        function viewRecovery() {
+            var err = VIEW.authError ? '<div class="error">' + esc(VIEW.authError) + "</div>" : "";
+            var info = VIEW.authInfo ? '<div class="info">' + esc(VIEW.authInfo) + "</div>" : "";
+            return '<section class="auth-wrap"><h2>Set a new password</h2>' +
+                '<p style="color:var(--text-muted);">You followed a password-reset link. Choose a new password below.</p>' +
+                '<form data-action="set-new-password">' +
+                '<label>New password<input type="password" name="password" minlength="6" required autofocus></label>' +
+                '<label>Confirm new password<input type="password" name="confirm" minlength="6" required></label>' +
+                '<button class="btn" type="submit"' + (VIEW.authBusy ? " disabled" : "") + ">Save password</button>" +
+                "</form>" + err + info + "</section>";
+        }
+
         function render() {
             var app = document.getElementById("app");
             if (!app) return;
+            if (RECOVERY_MODE) {
+                app.innerHTML = '<header class="topbar"><div class="brand">' + esc(TITLE) + "<small>" + esc(SUBTITLE) + "</small></div></header>" +
+                    "<main>" + viewRecovery() + "</main>";
+                return;
+            }
             var body = VIEW.tab === "home" ? viewHome() : VIEW.tab === "schedule" ? viewSchedule() : viewBoard();
             app.innerHTML = topbar() + "<main>" + body + '</main><footer>Made for Sol, Daeseong, Sandra &amp; Matthew · St. Catharines, ON</footer>';
         }
@@ -653,6 +722,7 @@
             else if (action === "sign-out") { doSignOut(); }
             else if (action === "show-signup") { VIEW.authMode = "signup"; VIEW.authError = ""; VIEW.authInfo = ""; loadTakenMembers(); render(); }
             else if (action === "show-signin") { VIEW.authMode = "signin"; VIEW.authError = ""; VIEW.authInfo = ""; render(); }
+            else if (action === "show-forgot") { VIEW.authMode = "forgot"; VIEW.authError = ""; VIEW.authInfo = ""; render(); }
         });
 
         document.addEventListener("submit", function (e) {
@@ -673,8 +743,35 @@
                 if (!title) return;
                 addPost(title, form.url.value.trim(), form.note.value.trim());
                 form.reset();
+            } else if (action === "set-new-password") {
+                doUpdatePassword(form.password.value, form.confirm.value);
+            } else if (action === "forgot-password") {
+                doForgotPassword(form.email.value.trim());
             }
         });
+
+        // Supabase redirects auth-link failures back here as "#error=...&error_code=...&error_description=...".
+        // Pick that up so the app can show a clear message instead of silently showing the home page.
+        function checkInitialHashError() {
+            var h = window.location.hash || "";
+            if (h.charAt(0) === "#") h = h.slice(1);
+            if (h.indexOf("error=") === -1) return;
+            var params = {};
+            h.split("&").forEach(function (pair) {
+                if (!pair) return;
+                var idx = pair.indexOf("=");
+                var k = idx === -1 ? pair : pair.slice(0, idx);
+                var v = idx === -1 ? "" : pair.slice(idx + 1);
+                params[decodeURIComponent(k)] = decodeURIComponent(v.replace(/\+/g, " "));
+            });
+            if (params.error) {
+                INITIAL_HASH_ERROR = params.error_description || "That link is invalid or has expired. Request a new one below.";
+                // Clear the hash so a reload doesn't keep re-showing this.
+                if (window.history && window.history.replaceState) {
+                    window.history.replaceState(null, "", window.location.pathname + window.location.search);
+                }
+            }
+        }
 
         /* ---------- init ---------- */
         function init() {
@@ -682,6 +779,7 @@
                 document.getElementById("app").innerHTML = '<div style="padding:40px;text-align:center;color:var(--danger);">Couldn’t load the Supabase library. Check your internet connection and reload.</div>';
                 return;
             }
+            checkInitialHashError();
             sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
             var now = new Date();
@@ -689,7 +787,10 @@
 
             render();
 
-            sb.auth.onAuthStateChange(function (_event, session) { handleSessionChange(session); });
+            sb.auth.onAuthStateChange(function (event, session) {
+                if (event === "PASSWORD_RECOVERY") RECOVERY_MODE = true;
+                handleSessionChange(session);
+            });
             sb.auth.getSession().then(function (res) { handleSessionChange(res.data.session); });
         }
 
